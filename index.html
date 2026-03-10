@@ -6,63 +6,91 @@
     <title>Edoardo Zaffaroni - Homeworks</title>
     <style>
       body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f4f7f6;
-        color: #333;
+        font-family: 'Inter', system-ui, sans-serif;
+        background-color: #f0f2f5;
+        color: #1a1a1a;
+        margin: 0;
+        padding: 40px 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 50px;
       }
 
-      h1 {
-        color: #2c3e50;
+      h1 { margin-bottom: 40px; }
+
+      section {
+        width: 100%;
+        max-width: 800px;
         margin-bottom: 30px;
       }
 
-      ul {
-        list-style: none;
-        padding: 0;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 15px;
-        width: 100%;
-        max-width: 600px;
+      h2 {
+        font-size: 1.2rem;
+        color: #666;
+        border-left: 4px solid #3498db;
+        padding-left: 10px;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
       }
 
-      li a {
-        display: block;
-        padding: 15px;
-        background-color: #ffffff;
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 15px;
+      }
+
+      .card {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
         text-align: center;
         text-decoration: none;
-        color: #3498db;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        transition: all 0.3s ease;
-        font-weight: bold;
+        color: #333;
+        font-weight: 600;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(0,0,0,0.05);
       }
 
-      li a:hover {
-        background-color: #3498db;
+      .card:hover {
+        background: #3498db;
         color: white;
-        transform: translateY(-3px);
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(52, 152, 219, 0.3);
       }
     </style>
   </head>
   <body>
-    <h1>I miei Homeworks</h1>
-    <ul>
-      <li><a href="es01/a.html">Es01a</a></li>
-      <li><a href="es01/b.html">Es01b</a></li>
-      <li><a href="es02/a.html">Es02a</a></li>
-      <li><a href="es02/b.html">Es02b</a></li>
-      <li><a href="es03/a.html">Es03a</a></li>
-      <li><a href="es03/b.html">Es03b</a></li>
-      <li><a href="es03/c.html">Es03c</a></li>
-      <li><a href="es03/d.html">Es03d</a></li>
-      <li><a href="es03/e.html">Es03e</a></li>
-    </ul>
+    <h1>Homeworks</h1>
+
+    <section>
+      <h2>Esercizi 01</h2>
+      <div class="grid">
+        <a href="es01/a.html" class="card">Es 01a</a>
+        <a href="es01/b.html" class="card">Es 01b</a>
+        <a href="es01/c.html" class="card">Es 01c</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Esercizi 02</h2>
+      <div class="grid">
+        <a href="es02/a.html" class="card">Es 02a</a>
+        <a href="es02/b.html" class="card">Es 02b</a>
+        <a href="es02/c.html" class="card">Es 02c</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Esercizi 03</h2>
+      <div class="grid">
+        <a href="es03/a.html" class="card">Es 03a</a>
+        <a href="es03/b.html" class="card">Es 03b</a>
+        <a href="es03/c.html" class="card">Es 03c</a>
+        <a href="es03/d.html" class="card">Es 03d</a>
+        <a href="es03/e.html" class="card">Es 03e</a>
+      </div>
+    </section>
   </body>
 </html>
