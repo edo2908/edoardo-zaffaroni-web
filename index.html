@@ -5,59 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edoardo Zaffaroni - Homeworks</title>
     <style>
+      :root {
+        --bg-dark: #0a0a0a;
+        --card-bg: #141414;
+        --gold: #d4af37;
+        --gold-light: #f1c40f;
+        --text-main: #e0e0e0;
+      }
+
       body {
-        font-family: 'Inter', system-ui, sans-serif;
-        background-color: #f0f2f5;
-        color: #1a1a1a;
+        font-family: 'Inter', -apple-system, sans-serif;
+        background-color: var(--bg-dark);
+        color: var(--text-main);
         margin: 0;
-        padding: 40px 20px;
+        padding: 60px 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
       }
 
-      h1 { margin-bottom: 40px; }
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        background: linear-gradient(to right, var(--gold), #fff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
 
       section {
         width: 100%;
         max-width: 800px;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
       }
 
       h2 {
-        font-size: 1.2rem;
-        color: #666;
-        border-left: 4px solid #3498db;
-        padding-left: 10px;
-        margin-bottom: 15px;
+        font-size: 0.9rem;
+        color: var(--gold);
+        margin-bottom: 20px;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 3px;
+        border-bottom: 1px solid #333;
+        padding-bottom: 10px;
       }
 
       .grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-        gap: 15px;
+        gap: 20px;
       }
 
       .card {
-        background: white;
-        padding: 20px;
-        border-radius: 12px;
+        background: var(--card-bg);
+        padding: 25px 15px;
+        border-radius: 8px;
         text-align: center;
         text-decoration: none;
-        color: #333;
-        font-weight: 600;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid rgba(0,0,0,0.05);
+        color: var(--text-main);
+        font-weight: 500;
+        border: 1px solid #222;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
       }
 
       .card:hover {
-        background: #3498db;
-        color: white;
+        border-color: var(--gold);
+        color: var(--gold);
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
         transform: translateY(-5px);
-        box-shadow: 0 10px 15px rgba(52, 152, 219, 0.3);
       }
     </style>
   </head>
