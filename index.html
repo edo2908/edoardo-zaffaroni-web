@@ -3,17 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edoardo Zaffaroni</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Edoardo Zaffaroni | Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
-        --bg-dark: #050505;
-        --card-bg: rgba(255, 255, 255, 0.03);
-        --card-border: rgba(255, 255, 255, 0.1);
-        --gold: #d4af37;
-        --gold-glow: rgba(212, 175, 55, 0.3);
-        --text-main: #f0f0f0;
-        --text-muted: #888;
+        --bg-color: #f9f7f2;
+        --accent-navy: #1a2a3a;
+        --accent-gold: #b08d57;
+        --text-main: #2c2c2c;
+        --border-color: #d1cfc7;
       }
 
       * {
@@ -21,127 +22,136 @@
       }
 
       body {
-        font-family: 'Inter', sans-serif;
-        background-color: var(--bg-dark);
+        font-family: "Montserrat", sans-serif;
+        background-color: var(--bg-color);
         color: var(--text-main);
         margin: 0;
-        padding: 80px 20px;
+        padding: 100px 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
         min-height: 100vh;
-        background-image: radial-gradient(circle at 50% -20%, #1a1a1a 0%, #050505 80%);
+        background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
       }
 
       h1 {
-        font-size: clamp(2rem, 5vw, 3rem);
-        margin-bottom: 60px;
-        font-weight: 600;
-        letter-spacing: -1px;
-        background: linear-gradient(135deg, #fff 0%, var(--gold) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        margin-bottom: 10px;
+        font-weight: 400;
+        color: var(--accent-navy);
         text-align: center;
+        letter-spacing: 1px;
+      }
+
+      .subtitle {
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-size: 1.2rem;
+        color: var(--accent-gold);
+        margin-bottom: 80px;
       }
 
       section {
         width: 100%;
-        max-width: 900px;
-        margin-bottom: 60px;
-        animation: fadeIn 0.8s ease forwards;
+        max-width: 800px;
+        margin-bottom: 80px;
+        animation: fadeIn 1s ease-out forwards;
       }
 
       h2 {
-        font-size: 0.8rem;
-        color: var(--text-muted);
-        margin-bottom: 25px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.75rem;
+        color: var(--accent-gold);
+        margin-bottom: 30px;
         text-transform: uppercase;
-        letter-spacing: 4px;
+        letter-spacing: 5px;
         display: flex;
         align-items: center;
-        gap: 15px;
+        justify-content: center;
+        gap: 20px;
       }
 
+      h2::before,
       h2::after {
         content: "";
         height: 1px;
-        flex-grow: 1;
-        background: linear-gradient(to right, rgba(212, 175, 55, 0.5), transparent);
+        width: 50px;
+        background: var(--accent-gold);
+        opacity: 0.5;
       }
 
       .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-        gap: 15px;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 25px;
       }
 
       .card {
-        background: var(--card-bg);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        padding: 30px 20px;
-        border-radius: 12px;
+        background: transparent;
+        padding: 40px 20px;
+        border-radius: 0;
         text-align: center;
         text-decoration: none;
-        color: var(--text-main);
+        color: var(--accent-navy);
         font-weight: 400;
-        border: 1px solid var(--card-border);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        border: 1px solid var(--border-color);
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
       }
 
-      .card::before {
-        content: '→';
+      .card::after {
+        content: "";
         position: absolute;
-        right: 15px;
-        opacity: 0;
-        transform: translateX(-10px);
-        transition: all 0.3s ease;
-        color: var(--gold);
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background-color: var(--accent-navy);
+        z-index: -1;
+        transition: all 0.4s ease;
       }
 
       .card:hover {
-        border-color: var(--gold);
-        background: rgba(212, 175, 55, 0.05);
-        transform: translateY(-8px);
-        box-shadow: 0 10px 30px -10px var(--gold-glow);
+        color: #fff;
+        border-color: var(--accent-navy);
       }
 
-      .card:hover::before {
-        opacity: 1;
-        transform: translateX(0);
+      .card:hover::after {
+        height: 100%;
       }
 
       @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
-
-      section:nth-child(2) { animation-delay: 0.1s; }
-      section:nth-child(3) { animation-delay: 0.2s; }
-      section:nth-child(4) { animation-delay: 0.3s; }
 
       @media (max-width: 480px) {
         .grid {
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: 1fr;
         }
       }
     </style>
   </head>
   <body>
-    <h1>Esercizi</h1>
+    <h1>Edoardo Zaffaroni</h1>
+    <div class="subtitle">Archivio Esercizi Scolastici</div>
 
     <section>
       <h2>Esercizio 03</h2>
       <div class="grid">
-        <a href="ES03/a.html" target="_blank" class="card">Es A</a>
-        <a href="ES03/b.html" target="_blank" class="card">Es B</a>
-        <a href="ES03/c.html" target="_blank" class="card">Es C</a>
-        <a href="ES03/d.html" target="_blank" class="card">Es D</a>
-        <a href="ES03/e.html" target="_blank" class="card">Es E</a>
+        <a href="ES03/a.html" target="_blank" class="card">Es. A</a>
+        <a href="ES03/b.html" target="_blank" class="card">Es. B</a>
+        <a href="ES03/c.html" target="_blank" class="card">Es. C</a>
+        <a href="ES03/d.html" target="_blank" class="card">Es. D</a>
+        <a href="ES03/e.html" target="_blank" class="card">Es. E</a>
       </div>
     </section>
   </body>
