@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Esercitazione sugli oggetti</title>
+  </head>
+  <body>
+    <form>
+      <input type="text" placeholder="Nome" id="nome" />
+      <input type="text" placeholder="Cognome" id="cognome" />
+      <input type="text" placeholder="Età" id="eta" />
+      <input type="submit" onclick="stampaInfo()" placeholder="Invia" />
+    </form>
+
+    <script>
+      function stampaInfo() {
+        event.preventDefault();
+
+        const persona = {
+          nome: document.getElementById("nome").value,
+          cognome: document.getElementById("cognome").value,
+          eta: document.getElementById("eta").value,
+        };
+
+        console.log(persona);
+      }
+    </script>
+  </body>
+</html>
