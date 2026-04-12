@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inverti Cifre</title>
+</head>
+<body>
+
+  <h2>Inverti cifre</h2>
+  <input type="number" id="numero" placeholder="es. 12345" /><br><br>
+  <button onclick="esegui()">Inverti</button>
+  <p id="risultato"></p>
+
+  <script>
+    function inverti_cifre(n) {
+      const negativo = n < 0;
+      const cifre = String(Math.abs(n)).split('').reverse().join('');
+      const risultato = parseInt(cifre, 10);
+      return negativo ? -risultato : risultato;
+    }
+
+    function esegui() {
+      const val = document.getElementById('numero').value;
+      const out = document.getElementById('risultato');
+
+      if (val.trim() === '' || !Number.isInteger(Number(val))) {
+        out.textContent = 'Errore: inserisci un numero intero.';
+        return;
+      }
+
+      const res = inverti_cifre(parseInt(val, 10));
+      out.textContent = 'Risultato: ' + res;
+    }
+  </script>
+
+</body>
+</html>

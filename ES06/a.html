@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calcolatrice</title>
+</head>
+<body>
+
+  <h2>Calcolatrice</h2>
+  <input type="number" id="num1" placeholder="Primo numero" /><br><br>
+  <select id="op">
+    <option value="">-- Operazione --</option>
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+    <option value="**">**</option>
+  </select><br><br>
+  <input type="number" id="num2" placeholder="Secondo numero" /><br><br>
+  <button onclick="calcola()">Calcola</button>
+  <p id="risultato"></p>
+
+  <script>
+    function parseNumero(val) {
+      if (val.trim() === '' || isNaN(Number(val))) return null;
+      return Number(val);
+    }
+
+    function eseguiOperazione(a, op, b) {
+      if (op === '+') return a + b;
+      if (op === '-') return a - b;
+      if (op === '*') return a * b;
+      if (op === '/') return a / b;
+      if (op === '**') return Math.pow(a, b);
+    }
+
+    function calcola() {
+      const a = parseNumero(document.getElementById('num1').value);
+      const op = document.getElementById('op').value;
+      const b = parseNumero(document.getElementById('num2').value);
+      const out = document.getElementById('risultato');
+
+      if (a === null || b === null || op === '') {
+        out.textContent = 'Errore: input non valido.';
+        return;
+      }
+      if (op === '/' && b === 0) {
+        out.textContent = 'Errore: divisione per zero.';
+        return;
+      }
+
+      out.textContent = 'Risultato: ' + parseFloat(eseguiOperazione(a, op, b).toFixed(10));
+    }
+  </script>
+
+</body>
+</html>
