@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Esercizio F</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        td, th {
+            border: 1px solid #ccc;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font-size: 14px;
+        }
+        th {
+            background-color: #007acc;
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* CSS PER RIGHE DISPARI: Evidenzia lo sfondo delle righe con classe "evidenziato" */
+        tr.evidenziato {
+            background-color: #e2f0d9; /* Un verde chiaro rilassante */
+        }
+        
+        /* Manteniamo comunque un'alternanza di colore sulle celle delle righe normali (pari) */
+        tr:not(.evidenziato) td:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Esercizio F</h1>
+    <p>Tavola pitagorica con righe dispari evidenziate dinamicamente tramite <code>setAttribute</code>:</p>
+
+    <div id="spazio-tabella"></div>
+
+    <script>
+        const contenitore = document.getElementById('spazio-tabella');
+        const tabella = document.createElement('table');
+
+        for (let riga = 1; riga <= 10; riga++) {
+            const tr = document.createElement('tr');
+
+            // CONTROLLO RIGA DISPARI: Se il resto della divisione per 2 è diverso da 0
+            if (riga % 2 !== 0) {
+                // Aggiunge l'attributo class="evidenziato" alla riga <tr>
+                tr.setAttribute('class', 'evidenziato');
+            }
+
+            for (let colonna = 1; colonna <= 10; colonna++) {
+                const cella = (riga === 1 || colonna === 1) 
+                    ? document.createElement('th') 
+                    : document.createElement('td');
+
+                cella.textContent = riga * colonna;
+                tr.appendChild(cella);
+            }
+
+            tabella.appendChild(tr);
+        }
+
+        contenitore.appendChild(tabella);
+    </script>
+
+</body>
+</html>
