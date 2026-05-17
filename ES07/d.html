@@ -8,38 +8,28 @@
             font-family: Arial, sans-serif;
             margin: 30px;
         }
-        .spazio {
-            margin-bottom: 20px;
-        }
-        /* METODO 1: Forza la visualizzazione in maiuscolo tramite CSS */
-        .solo-css {
-            text-transform: uppercase;
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border: 2px solid #333;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
 
     <h1>Esercizio D</h1>
+    <p>Scrivi nella casella di testo per convertire i caratteri in maiuscolo:</p>
 
-    <div class="spazio">
-        <label for="inputCSS">1. Trasformazione immediata (solo estetica con CSS):</label><br>
-        <input type="text" id="inputCSS" class="solo-css" placeholder="Scrivi qui...">
-    </div>
-
-    <div class="spazio">
-        <label for="inputJS">2. Trasformazione reale del valore (con JavaScript):</label><br>
-        <input type="text" id="inputJS" placeholder="Scrivi qui...">
-    </div>
+    <input type="text" id="campoTesto" oninput="convertiInMaiuscolo(this)" placeholder="Scrivi qualcosa...">
 
     <script>
-        // Seleziono la seconda casella di testo
-        const campoTesto = document.getElementById('inputJS');
-
-        // Ascolto l'evento 'input' (ogni volta che l'utente digita una lettera)
-        campoTesto.addEventListener('input', function() {
-            // Prendo il testo inserito, lo converto in maiuscolo e lo riscrivo nella casella
-            this.value = this.value.toUpperCase();
-        });
+        // Funzione semplice per convertire il testo in maiuscolo
+        function convertiInMaiuscolo(input) {
+            // Prende il valore corrente, lo trasforma in maiuscolo e lo risolleva nell'input
+            input.value = input.value.toUpperCase();
+        }
     </script>
 
 </body>
