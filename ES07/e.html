@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Esercizio E - Tavola Pitagorica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        td, th {
+            border: 1px solid #ccc;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font-size: 14px;
+        }
+        /* Stile speciale per la prima riga e la prima colonna (i fattori) */
+        th {
+            background-color: #007acc;
+            color: white;
+            font-weight: bold;
+        }
+        /* Effetto scacchiera leggero sulle celle dei risultati */
+        td:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Esercizio E</h1>
+    <p>Tavola pitagorica 10x10 generata dinamicamente con JavaScript:</p>
+
+    <div id="spazio-tabella"></div>
+
+    <script>
+        // 1. Selezioniamo il contenitore HTML
+        const contenitore = document.getElementById('spazio-tabella');
+
+        // 2. Creiamo l'elemento principale <table>
+        const tabella = document.createElement('table');
+
+        // 3. Ciclo per le righe (da 1 a 10)
+        for (let riga = 1; riga <= 10; riga++) {
+            // Creiamo l'elemento riga <tr>
+            const tr = document.createElement('tr');
+
+            // 4. Ciclo per le colonne (da 1 a 10)
+            for (let colonna = 1; colonna <= 10; colonna++) {
+                
+                // Se siamo nella prima riga o nella prima colonna, usiamo i th (intestazioni)
+                // altrimenti usiamo i normali td
+                const cella = (riga === 1 || colonna === 1) 
+                    ? document.createElement('th') 
+                    : document.createElement('td');
+
+                // Calcoliamo il prodotto e lo inseriamo come testo nella cella
+                cella.textContent = riga * colonna;
+
+                // Appendiamo la cella appena creata alla riga corrente
+                tr.appendChild(cella);
+            }
+
+            // Appendiamo la riga completata alla tabella
+            tabella.appendChild(tr);
+        }
+
+        // 5. Infine, appendiamo l'intera tabella al contenitore nella pagina
+        contenitore.appendChild(tabella);
+    </script>
+
+</body>
+</html>
