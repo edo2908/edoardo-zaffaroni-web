@@ -8,61 +8,39 @@
             font-family: Arial, sans-serif;
             margin: 30px;
         }
-
-        /* Stile per il primo pulsante (Blu) */
-        .btn-blu {
-            background-color: #007acc; /* Colore dello sfondo */
-            color: #ffffff;            /* Colore del testo */
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        /* Stile iniziale dei pulsanti */
+        .bottone {
+            padding: 12px 24px;
             font-size: 16px;
             margin-right: 10px;
-        }
-        /* Cambia colore quando il mouse passa sopra */
-        .btn-blu:hover {
-            background-color: #005999;
-        }
-
-        /* Stile per il secondo pulsante (Verde) */
-        .btn-verde {
-            background-color: #2ea44f; /* Colore dello sfondo */
-            color: #ffffff;            /* Colore del testo */
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
-            margin-right: 10px;
-        }
-        .btn-verde:hover {
-            background-color: #227d3c;
-        }
-
-        /* Stile per il terzo pulsante (Arancione) */
-        .btn-arancio {
-            background-color: #ff9900; /* Colore dello sfondo */
-            color: #111111;            /* Colore del testo (scuro per contrasto) */
-            padding: 10px 20px;
-            border: none;
+            border: 2px solid #333;
+            background-color: #ffffff; /* Sfondo iniziale bianco */
+            color: #333;               /* Testo iniziale scuro */
             border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        .btn-arancio:hover {
-            background-color: #e68a00;
+            transition: background-color 0.3s; /* Rende il cambio di colore fluido */
         }
     </style>
 </head>
 <body>
 
     <h1>Esercizio C</h1>
-    <p>Pulsanti personalizzati con CSS:</p>
+    <p>Clicca sui pulsanti per cambiare il loro colore di sfondo:</p>
 
-    <button class="btn-blu">Pulsante Blu</button>
-    <button class="btn-verde">Pulsante Verde</button>
-    <button class="btn-arancio">Pulsante Arancione</button>
+    <button class="bottone" onclick="cambiaColore(this, 'coral')">Pulsante 1</button>
+    <button class="bottone" onclick="cambiaColore(this, 'gold')">Pulsante 2</button>
+    <button class="bottone" onclick="cambiaColore(this, 'lightgreen')">Pulsante 3</button>
+
+    <script>
+        // Funzione semplice per cambiare colore
+        function cambiaColore(elementoPulsante, colore) {
+            // Modifica lo sfondo del pulsante cliccato con il colore passato come argomento
+            elementoPulsante.style.backgroundColor = colore;
+            
+            // Opzionale: cambia il colore del testo in bianco se lo sfondo diventa scuro
+            elementoPulsante.style.color = '#000000';
+        }
+    </script>
 
 </body>
 </html>
