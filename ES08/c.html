@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Esercizio C</title>
+</head>
+<body>
+
+    <h1>Esercizio C</h1>
+
+    <label for="mioInput">Campo di Testo:</label>
+    <input type="text" id="mioInput" placeholder="Cliccami...">
+
+    <script>
+        const campo = document.getElementById('mioInput');
+
+        campo.addEventListener('focus', function() {
+            campo.style.backgroundColor = '#e0f7fa'; // Colore azzurro chiaro
+        });
+
+        campo.addEventListener('blur', function() {
+            campo.style.backgroundColor = ''; // Ripristina lo sfondo iniziale
+        });
+    </script>
+
+</body>
+</html>
